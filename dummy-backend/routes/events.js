@@ -23,7 +23,9 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const event = await get(req.params.id);
-    res.json({ event: event });
+    setTimeout(() => {
+      res.json({ event: event });
+    }, 5000);
   } catch (error) {
     next(error);
   }
